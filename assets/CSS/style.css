@@ -8091,10 +8091,10 @@ input[type=range]::-ms-thumb {
     margin-top: 1.2rem;
   }
 }
-/* body{
-    background: rgb(61, 61, 61);
-    color: rgb(255, 255, 255);
-} */
+body {
+  height: auto;
+}
+
 .card {
   width: 500px;
 }
@@ -8108,6 +8108,10 @@ input[type=range]::-ms-thumb {
 footer {
   bottom: 0px;
   width: 100%;
+}
+
+.form-register {
+  margin-top: 200px;
 }
 
 /*# sourceMappingURL=style.css.map */

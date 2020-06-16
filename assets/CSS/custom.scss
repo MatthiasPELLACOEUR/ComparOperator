@@ -1,9 +1,8 @@
 @import '../CSS/sass/materialize.scss';
 
-/* body{
-    background: rgb(61, 61, 61);
-    color: rgb(255, 255, 255);
-} */
+body{
+    height: auto;
+}
 .card {
     width: 500px;
 }
@@ -16,4 +15,8 @@
 footer{
     bottom: 0px;
     width: 100%;
+}
+
+.form-register {
+    margin-top: 200px;
 }
