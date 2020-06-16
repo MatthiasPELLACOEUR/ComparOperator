@@ -34,7 +34,7 @@ class Manager
                   ' . ucfirst($destination["location"]) . '
                 </div>
                 <div class="card-action">
-                  <a class="blue-text" href="./classes/Destination.php?location=' . $destination['location'] . '">Voit les tours opérators</a>
+                  <a class="blue-text" href="./classes/Destination.php?location=' . $destination['location'] . '">Voir les tours opérators</a>
                 </div>
               </div>
            </div>';
@@ -53,7 +53,7 @@ class Manager
         '<div class="col s12 m6">
             <div class="card white">
               <div class="card-content black-text">
-                <span class="card-title">' . $operator["name"] . '</span>
+                <span class="card-title"><a class="blue-text" href="../operator.php?name=' . $operator['name'] . '">' . $operator["name"] . '</a></span>
                 <p>I am a very simple card. I am good at containing small bits of information.
                 I am convenient because I require little markup to use effectively.</p>
               </div>';
@@ -69,12 +69,16 @@ class Manager
     }
   }
 
+  
+
+
   public function createReview()
   {
   }
 
   public function getReviewByOperatorId()
   {
+
   }
 
   public function getAllOperator()
