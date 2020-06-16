@@ -14,3 +14,8 @@
   //jquery CAROUSEL
   
   $(document).ready(function(){$('.carousel').carousel();});
+
+  //select premium
+  $(document).ready(function(){
+    $('select').formSelect();
+  });
