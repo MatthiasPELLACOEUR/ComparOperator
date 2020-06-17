@@ -20,7 +20,7 @@
        foreach ($destinationByOps as $destination) {?>
     
         <div class="col s12 m7">
-        <h5 class="header"> <?= ucfirst($destination["location"])?></h5>
+        <h5 class="header"> <?= ucfirst($destination["location"])?> <span class="right"><?=$destination['price']?>€</span></h5>
         <div class="card horizontal">
           <div class="card-image test">
           <img src="./assets/IMG/<?=$destination['photos']?>">
@@ -36,9 +36,21 @@
     </div>
     <div>
         
-        <p>Commentaires : </p>
+    <h5>Reviews</h5>
         <ul>
             <?= $review->getMessage() ?>
         </ul>
     </div>
+    <h5>Add a review</h5>
+    <div class="row">
+      <form action="post" class="form-review">
+        <input type="text" class="col s5" name="author" placeholder="Your name">
+        <input type="text" name="message" placeholder="Your message">
+        <input type="submit" value="Send">
+      </form>
+    </div>
 </div>
+
+<?php
+
+include './partials/footer.php';

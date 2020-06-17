@@ -16,12 +16,7 @@ class TourOperator
     
     public function getId()
     {
-        $manager = new Manager();
-        $reqDestinationByOp = $manager->bdd->prepare('SELECT * FROM tour_operators');
-        $reqDestinationByOp->execute();
-
-        return $reqDestinationByOp->fetchAll(PDO::FETCH_ASSOC);
-    
+        
     }
 
     public function getName()
