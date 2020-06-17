@@ -3,7 +3,7 @@
 class Manager
 {
 
-  private $bdd;
+  public $bdd;
   public $erreur;
 
   public function __construct()
@@ -36,6 +36,7 @@ class Manager
 
   public function OperatorByDestination()
   {
+    
     $reqOpByDestination = $this->bdd->prepare('SELECT * FROM tour_operators INNER JOIN destinations ON destinations.id_tour_operator = tour_operators.id WHERE destinations.location = ?');
     $reqOpByDestination->execute(array($_GET['location']));
 
@@ -55,12 +56,16 @@ class Manager
     $reqDestinationByOp = $this->bdd->prepare('SELECT * FROM tour_operators INNER JOIN destinations ON destinations.id_tour_operator = tour_operators.id WHERE tour_operators.id = ?');
     $reqDestinationByOp->execute(array($_GET['id']));
 
-  return $reqDestinationByOp->fetchAll(PDO::FETCH_ASSOC);
+    return $reqDestinationByOp->fetchAll(PDO::FETCH_ASSOC);
     
   }
+
   public function getAllOperator()
   {
+    $reqGetOperator = $this->bdd->prepare('SELECT * FROM tour_operators');
+    $reqGetOperator->execute();
 
+    return $reqGetOperator->fetchAll(PDO::FETCH_ASSOC);
   }
 
   public function updateOperatorToPremium()
@@ -89,7 +94,7 @@ class Manager
             if ($toLinkExist == 0) {
               $insertTo = $this->bdd->prepare('INSERT INTO tour_operators(name, link) VALUES (?, ?)');
               $insertTo->execute(array($toName, $toLink));
-              echo "<font color='red'>Your Tour Opérator has been successfully created.</font>";
+              echo "<font color='green'>Your Tour Opérator has been successfully created.</font>";
               // header('Location: index.php');
             } else {
               echo '<font color="red">Your link is already used.</font>';
