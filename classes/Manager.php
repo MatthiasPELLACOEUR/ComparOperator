@@ -60,7 +60,10 @@ class Manager
   }
   public function getAllOperator()
   {
+    $reqGetOperator = $this->bdd->query('SELECT * FROM tour_operators');
 
+
+    return $reqGetOperator()->fetchAll();
   }
 
   public function updateOperatorToPremium()

@@ -8129,4 +8129,9 @@ footer {
   margin: 10px;
 }
 
+.centreListeTo {
+  display: flex;
+  justify-content: center;
+}
+
 /*# sourceMappingURL=style.css.map */
