@@ -4,7 +4,7 @@
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
+        <li><a href="../allDestinations.php">Destinations</a></li>
         <li><a href="../login.php">Login</a></li>
         <li><a href="../register.php">Register</a></li>
       </ul>
