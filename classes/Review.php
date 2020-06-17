@@ -26,27 +26,35 @@ class Review
     }
 
     public function getMessage()
- 
-    
-    { $reqMessageAll = $this->bdd->prepare('SELECT * FROM reviews INNER JOIN tour_operators ON reviews.id_tour_operator = tour_operators.id WHERE reviews.id_tour_operator = ?');
+    { 
+      $reqMessageAll = $this->bdd->prepare('SELECT message FROM reviews INNER JOIN tour_operators ON reviews.id_tour_operator = tour_operators.id WHERE reviews.id_tour_operator = ?');
       $reqMessageAll->execute(array($_GET['id']));
       $messages = $reqMessageAll->fetchAll(PDO::FETCH_ASSOC); 
+      foreach ($messages as $this->message) {
+        echo '
+        <li class="comm">
+          '.$this->message['message']; $this->getAuthor().'
+        </li>'
+        ;
+    }
+  }
 
-    foreach ($messages as $message) {
-      echo '
-           
-            <div class="card">
-                <div class="card-content">
-                ' . $message['message'] . '
-                </div>
-            </div>';
-    }
   
-    }
+    
 
     public function getAuthor()
     {
+      $reqAuthorAll = $this->bdd->prepare('SELECT author FROM reviews  WHERE reviews.id_tour_operator = ? AND reviews.message = ? ');
+      $reqAuthorAll->execute(array($_GET['id'], $this->message['message']));
+      $authors = $reqAuthorAll->fetchAll(PDO::FETCH_ASSOC); 
 
+      foreach($authors as $author){
+        echo '
+        <div class="right">
+        '. $author['author'] .'
+        </div>'
+        ;
+      }
     }
 
     public function getId_tour_operator()
