@@ -1,9 +1,10 @@
 <?php
-     include './classes/Manager.php';
      include './classes/Review.php';
+     include './classes/TourOperator.php';
      include './partials/header.php';
      include './partials/nav.php';
      $manager = new Manager();
+     $tourOp = new TourOperator();
      $review = new Review();
     //  $review->getAuthor();
      
@@ -11,6 +12,8 @@
 
 <div class="container">
     <h4><?=ucfirst($_GET['name'])?></h4>
+    <?php $tourOp->getIsPremium(); ?>
+
     <div class="row">
        <?php $destinationByOps = $manager->getDestinationByOperatorId();
 

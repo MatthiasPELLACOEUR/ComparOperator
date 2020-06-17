@@ -1,8 +1,11 @@
 <?php
-include './classes/Manager.php';
+// include './classes/Manager.php';
 include './partials/header.php';
 include './partials/nav.php';
+include './classes/TourOperator.php';
 $manager = new Manager();
+$tourOp = new TourOperator();
+$DestinationsByOperator = $tourOp->getId();
 ?>
 
 <div class="container">
@@ -12,11 +15,11 @@ $manager = new Manager();
                 foreach ($allTO as $tour_operator) {?>
                     <div class="card">
                         <div class="card-content">
-                            <?= ucfirst($tour_operator["name"])?>
+                            <?php echo ucfirst($tour_operator["name"]);?>
+
+                            <button class="right btn"><a class="white-text" href="./operator.php?id=<?= $tour_operator['id'] ?>&name=<?= $tour_operator['name'] ?>"> Nos voyages</a></button>
+                                
                         </div>
-                    <div class="card-action">
-                        <a class="blue-text" href="./classes/Destination.php?location=<?= $tour_operator['id'] ?>">Voir les tours opérators</a>
-                    </div>
                     </div>
                 <?php }
             ?>
