@@ -1,11 +1,8 @@
 <?php
 
     include './classes/Manager.php';
-
     $manager = new Manager();
-
     include './partials/header.php';
-
     include './partials/nav.php'
 
 ?>
@@ -28,7 +25,7 @@
     <!-- <div class="container"> -->
 
     
-      <!-- UN COMMENTAIRE QUELCONQUE -->
+
     <!-- </div> -->
     <div class="parallax-container">
     <div class="parallax"><img src="./assets/IMG/japon.jpg"></div>
