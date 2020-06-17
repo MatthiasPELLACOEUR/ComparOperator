@@ -4,42 +4,40 @@ include 'Manager.php';
 
 class Destination
 {
+  
+  private $id,
+  $location,
+  $id_tour_operation;
+  public $price;
 
-    private $id,
-            $location,
-            $prive,
-            $id_tour_operation;
+  
+  public function __construct()
+  {
+    
+  }
+  
+  public function getId()
+  {
+    
+  }
+  
+  public function getLocation()
+  {
+    
+  }
+  
 
-    public function __construct()
-    {
-        
-    }
-
-    public function getId()
-    {
-
-    }
-
-    public function getLocation()
-    {
-
-    }
-
-    public function getPrice()
-    {
-
-    }
-
-    public function getId_tour_operator()
-    {
-        
-    }
+  public function getId_tour_operator()
+  {
+      
+  }
 }
 
 include '../partials/header.php';
 include '../partials/nav.php';
-
 $manager = new Manager();
+$destination = new Destination();
+
 
 ?>
 
@@ -52,7 +50,8 @@ $manager = new Manager();
         <div class="col s10 m6">
             <div class="card white to_by_destination">
               <div class="card-content black-text">
-                <span class="card-title"><a class="blue-text" href="../operator.php?id=<?= $operator['id_tour_operator'] ?>&amp;name=<?= $operator['name'] ?>"> <?=$operator["name"]?> </a></span>
+                
+                <span class="card-title"><a class="blue-text" href="../operator.php?id=<?= $operator['id_tour_operator'] ?>&amp;name=<?= $operator['name'] ?>"> <?=$operator["name"]?> </a> <span class="right"><?= $operator['price'] ?>€</span> </span>
                 <p>I am a very simple card. I am good at containing small bits of information.
                 I am convenient because I require little markup to use effectively.</p>
               </div>
@@ -67,9 +66,12 @@ $manager = new Manager();
         <div class="col s12 m6">
           <div class="card white">
             <div class="card-content black-text">
-              <span class="card-title"><a class="blue-text" href="../operator.php?id=<?= $operator['id_tour_operator'] ?>&amp;name=<?= $operator['name']?>"><?= $operator["name"] ?></a></span>
+              <span class="card-title"><a class="blue-text" href="../operator.php?id=<?= $operator['id_tour_operator'] ?>&amp;name=<?= $operator['name']?>"><?= $operator["name"] ?></a> <span class="right"><?= $operator['price'] ?>€</span> </span>
+              
+
               <p>I am a very simple card. I am good at containing small bits of information.
               I am convenient because I require little markup to use effectively.</p>
+
             </div>
           </div>
         </div>

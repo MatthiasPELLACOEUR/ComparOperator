@@ -8129,9 +8129,14 @@ footer {
   margin: 10px;
 }
 
-.centreListeTo {
-  display: flex;
-  justify-content: center;
+.form-review {
+  border: 1px solid black;
+  padding: 20px;
+  background: rgba(229, 233, 235, 0.643);
+  box-shadow: 2x 2px 0px black;
+}
+.form-review ::placeholder {
+  color: black;
 }
 
 /*# sourceMappingURL=style.css.map */

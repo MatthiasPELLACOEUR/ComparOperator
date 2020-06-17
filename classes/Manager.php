@@ -77,15 +77,11 @@ class Manager
     if (isset($_POST['action'])) {
       $toName = htmlspecialchars($_POST['TO-name']);
       $toLink = $_POST['TO-link'];
-      // $selectPremium = $_POST['select-premium'];
-      // verification all fields are completed
       if (!empty($_POST['TO-name']) && !empty($_POST['TO-link'])) {
-        // verification only 1 nickname in the database
         $reqNickname = $this->bdd->prepare('SELECT * FROM tour_operators WHERE name = ?');
         $reqNickname->execute(array($toName));
         $toNameExist = $reqNickname->rowCount();
         if ($toNameExist == 0) {
-          //verification length nickname
           $toNameLen = strlen($toName);
           if ($toNameLen <= 255) {
             $reqLink = $this->bdd->prepare('SELECT * FROM tour_operators WHERE link = ?');
@@ -95,7 +91,6 @@ class Manager
               $insertTo = $this->bdd->prepare('INSERT INTO tour_operators(name, link) VALUES (?, ?)');
               $insertTo->execute(array($toName, $toLink));
               echo "<font color='green'>Your Tour Opérator has been successfully created.</font>";
-              // header('Location: index.php');
             } else {
               echo '<font color="red">Your link is already used.</font>';
             }

@@ -1,11 +1,8 @@
 <?php
-// include './classes/Manager.php';
 include './partials/header.php';
 include './partials/nav.php';
 include './classes/TourOperator.php';
 $manager = new Manager();
-$tourOp = new TourOperator();
-$DestinationsByOperator = $tourOp->getId();
 ?>
 
 <div class="container">
