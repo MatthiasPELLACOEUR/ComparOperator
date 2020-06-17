@@ -46,11 +46,13 @@
       <form action="post" class="form-review">
         <input type="text" class="col s5" name="author" placeholder="Your name">
         <input type="text" name="message" placeholder="Your message">
-        <input type="submit" value="Send">
+        <button class="btn waves-effect waves-light red right" type="submit" name="formAction">Submit
+                <i class="material-icons right">send</i>
+        </button>
       </form>
     </div>
 </div>
-
 <?php
+//$manager->createReview(); 
 
 include './partials/footer.php';

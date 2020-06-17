@@ -49,6 +49,35 @@ class Manager
 
   public function createReview()
   {
+    /* if (isset($_POST['formAction'])) {
+      $toAuthor = htmlspecialchars($_POST['author']);
+      $toMessage = htmlspecialchars($_POST['message']);
+      if (!empty($_POST['author']) && !empty($_POST['message'])) {
+        $reqAuthor = $this->bdd->prepare('SELECT * FROM reviews WHERE author = ?');
+        $reqAuthor->execute(array($toAuthor));
+        $toAuthorExist = $reqAuthor->rowCount();
+        if ($toAuthorExist == 0) {
+          $toAuthorLen = strlen($toAuthor);
+          if ($toAuthorLen <= 255) {
+            $reqMessage = $this->bdd->prepare('SELECT * FROM reviews WHERE message = ?');
+            $reqMessage->execute(array($toMessage));
+            $toMessageExist = $reqMessage->rowCount();
+            if ($toMessageExist == 0) {
+              $insertMessage = $this->bdd->prepare('INSERT INTO reviews(author, message) VALUES (?, ?)');
+              $insertMessage->execute(array($toAuthor, $toMessage));
+
+              echo "<font color='green'>Your Message has been posted.</font>";
+            } else {
+              echo '<font color="red">Your message is not accepted.</font>';
+            }
+          }
+        } else {
+          echo '<div class="container row"><div class="col s8 offset-s3"><font color="red">This author name is already used.</font></div></div>';
+        }
+      } else {
+        echo '<font color="red">All fields must be completed.</font>';
+      }
+    } */
   }
 
   public function getDestinationByOperatorId()
@@ -90,6 +119,7 @@ class Manager
             if ($toLinkExist == 0) {
               $insertTo = $this->bdd->prepare('INSERT INTO tour_operators(name, link) VALUES (?, ?)');
               $insertTo->execute(array($toName, $toLink));
+              var_dump($toLink);
               echo "<font color='green'>Your Tour Opérator has been successfully created.</font>";
             } else {
               echo '<font color="red">Your link is already used.</font>';
