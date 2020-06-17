@@ -19,26 +19,19 @@ class Manager
 
   public function getAllDestinations()
   {
-    $reqDestinations = $this->bdd->query('SELECT * FROM destinations GROUP BY location');
+    $reqDestinations = $this->bdd->query('SELECT * FROM destinations GROUP BY location ORDER BY location');
 
-    $destinations = $reqDestinations->fetchAll(PDO::FETCH_ASSOC);
+    return $reqDestinations->fetchAll(PDO::FETCH_ASSOC);
 
-    foreach ($destinations as $destination) {
-      echo '
-            <div class="carousel-item">
-              <div class="card">
-                <div class="card-image">
-                  <img src="./assets/IMG/' . $destination['photos'] . '">
-                </div>
-                <div class="card-content">
-                  ' . ucfirst($destination["location"]) . '
-                </div>
-                <div class="card-action">
-                  <a class="blue-text" href="./classes/Destination.php?location=' . $destination['location'] . '">Voir les tours opérators</a>
-                </div>
-              </div>
-           </div>';
-    }
+  }
+
+
+  public function getDestinationsLimit()
+  {
+    $reqDestinations = $this->bdd->query('SELECT * FROM destinations GROUP BY location LIMIT 4');
+
+    return $reqDestinations->fetchAll(PDO::FETCH_ASSOC);
+
   }
 
   public function OperatorByDestination()
@@ -46,37 +39,7 @@ class Manager
     $reqOpByDestination = $this->bdd->prepare('SELECT * FROM tour_operators INNER JOIN destinations ON destinations.id_tour_operator = tour_operators.id WHERE destinations.location = ?');
     $reqOpByDestination->execute(array($_GET['location']));
 
-    $OperatorsByDestination = $reqOpByDestination->fetchAll(PDO::FETCH_ASSOC);
-
-    foreach ($OperatorsByDestination as $operator) {
-      if ($operator['is_premium'] == true) {
-      echo
-        '<div class="col s10 m6">
-            <div class="card white to_by_destination">
-              <div class="card-content black-text">
-                <span class="card-title"><a class="blue-text" href="../operator.php?id=' . $operator['id_tour_operator'] . '&amp;name='. $operator['name'].'">' . $operator["name"] . '</a></span>
-                <p>I am a very simple card. I am good at containing small bits of information.
-                I am convenient because I require little markup to use effectively.</p>
-              </div>
-              <div class="card-action">
-                <a href="' . $operator['link'] . '">Notre site</a>
-              </div>
-            </div>
-          </div>';
-      }
-      elseif ($operator['is_premium'] == false){
-        echo '
-        <div class="col s12 m6">
-          <div class="card white">
-            <div class="card-content black-text">
-              <span class="card-title"><a class="blue-text" href="../operator.php?id=' . $operator['id_tour_operator'] . '&amp;name='. $operator['name'].'">' . $operator["name"] . '</a></span>
-              <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
-            </div>
-          </div>
-        </div>';
-      }
-    }
+    return $reqOpByDestination->fetchAll(PDO::FETCH_ASSOC);
     
   }
 
@@ -87,11 +50,14 @@ class Manager
   {
   }
 
-  public function getReviewByOperatorId()
+  public function getDestinationByOperatorId()
   {
+    $reqDestinationByOp = $this->bdd->prepare('SELECT * FROM tour_operators INNER JOIN destinations ON destinations.id_tour_operator = tour_operators.id WHERE tour_operators.id = ?');
+    $reqDestinationByOp->execute(array($_GET['id']));
 
+  return $reqDestinationByOp->fetchAll(PDO::FETCH_ASSOC);
+    
   }
-
   public function getAllOperator()
   {
 

@@ -18,7 +18,23 @@
         <h2 class="header">Choose your destination</h2>
         <p class="grey-text text-darken-3 lighten-3">Click on the card of your choice.</p>
         <div class="carousel">
-          <?= $manager->getAllDestinations() ?>
+            <?php $destinations = $manager->getDestinationsLimit();
+            foreach ($destinations as $destination) {?>
+                  <div class="carousel-item">
+                     <div class="card">
+                        <div class="card-image">
+                          <img src="./assets/IMG/<?=$destination['photos']?>">
+                        </div>
+                        <div class="card-content">
+                          <?= ucfirst($destination["location"])?>
+                        </div>
+                        <div class="card-action">
+                          <a class="blue-text" href="./classes/Destination.php?location=<?= $destination['location'] ?>">Voir les tours opérators</a>
+                        </div>
+                      </div>
+                  </div>
+            <?php }?>
+          </div>
         </div>
       </div>
     </div>
