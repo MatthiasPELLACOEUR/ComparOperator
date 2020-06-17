@@ -3,13 +3,21 @@
 body{
     height: auto;
 }
-.card {
+
+.carousel-item {
+    & .card {
     width: 500px;
+    }
 }
+
 .carousel{
     margin-top: -250px;
     margin-left: -150px;
     height: 750px;
+}
+
+.to_by_destination{
+    width: 100%;
 }
 
 footer{

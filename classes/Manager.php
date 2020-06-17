@@ -49,24 +49,35 @@ class Manager
     $OperatorsByDestination = $reqOpByDestination->fetchAll(PDO::FETCH_ASSOC);
 
     foreach ($OperatorsByDestination as $operator) {
+      if ($operator['is_premium'] == true) {
       echo
-        '<div class="col s12 m6">
-            <div class="card white">
+        '<div class="col s10 m6">
+            <div class="card white to_by_destination">
               <div class="card-content black-text">
-                <span class="card-title"><a class="blue-text" href="../operator.php?name=' . $operator['name'] . '">' . $operator["name"] . '</a></span>
+                <span class="card-title"><a class="blue-text" href="../operator.php?id=' . $operator['id_tour_operator'] . '&amp;name='. $operator['name'].'">' . $operator["name"] . '</a></span>
                 <p>I am a very simple card. I am good at containing small bits of information.
                 I am convenient because I require little markup to use effectively.</p>
-              </div>';
-
-      if ($operator['is_premium'] == true) {
-        echo '
+              </div>
               <div class="card-action">
                 <a href="' . $operator['link'] . '">Notre site</a>
               </div>
-              </div>
-            </div>';
+            </div>
+          </div>';
+      }
+      elseif ($operator['is_premium'] == false){
+        echo '
+        <div class="col s12 m6">
+          <div class="card white">
+            <div class="card-content black-text">
+              <span class="card-title"><a class="blue-text" href="../operator.php?id=' . $operator['id_tour_operator'] . '&amp;name='. $operator['name'].'">' . $operator["name"] . '</a></span>
+              <p>I am a very simple card. I am good at containing small bits of information.
+              I am convenient because I require little markup to use effectively.</p>
+            </div>
+          </div>
+        </div>';
       }
     }
+    
   }
 
   
@@ -83,6 +94,7 @@ class Manager
 
   public function getAllOperator()
   {
+
   }
 
   public function updateOperatorToPremium()
