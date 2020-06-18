@@ -15,19 +15,19 @@ if(isset($_SESSION['id_admin'])){
 
 <div class="container">
     <div class="row">
-        <div class="col s10 m6">
-            <?php $allDestinations = $manager->getAllDestinations();
-                foreach ($allDestinations as $destination) {?>
+        <?php $allDestinations = $manager->getAllDestinations();
+            foreach ($allDestinations as $destination) {?>
+                <div class="col s4">
                     <div class="card">
                         <div class="card-content">
                             <?= ucfirst($destination['location'])?>
                         </div>
-                    <div class="card-action">
-                        <a class="blue-text" href="./classes/Destination.php?location=<?= $destination['location'] ?>">Voir les tours opérators</a>
+                        <div class="card-action">
+                            <a class="blue-text" href="./classes/Destination.php?location=<?= $destination['location'] ?>">Voir les tours opérators</a>
+                        </div>
                     </div>
-                    </div>
-                <?php }
-            ?>
-        </div>
+                </div>
+            <?php }
+        ?>
     </div>
 </div>

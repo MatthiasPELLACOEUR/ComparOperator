@@ -20,15 +20,16 @@ $review = new Review();
 
        foreach ($destinationByOps as $destination) {?>
     
-        <div class="col s6">
-        <h5 class="header"> <?= ucfirst($destination["location"])?></span> <span class="right"><?=$destination['price']?>€</span></h5>
+        <div class="col s6 offset-s1">
+        <h5 class="header"> <?= ucfirst($destination["location"])?></h5>
         <div class="card horizontal">
           <div class="card-image test">
           <img src="./assets/IMG/<?=$destination['photos']?>">
           </div>
           <div class="card-stacked">
             <div class="card-content">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> <br><br>
+              <h5 class="right"><?=$destination['price']?>€</h5>
             </div>
           </div>
         </div>

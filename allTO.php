@@ -15,19 +15,19 @@ $manager = new Manager();
 
 <div class="container">
     <div class="row">
-        <div class="col s10 m6">
-            <?php $allTO = $manager->getAllOperator();
-                foreach ($allTO as $tour_operator) {?>
+        <?php $allTO = $manager->getAllOperator();
+            foreach ($allTO as $tour_operator) {?>
+                <div class="col s4">
                     <div class="card">
                         <div class="card-content">
                             <?php echo ucfirst($tour_operator["name"]);?>
 
-                            <a class="white-text" href="./operator.php?id_to=<?= $tour_operator['id'] ?>&name=<?= $tour_operator['name'] ?>"><button class="right btn">Nos voyages</button></a>
+                            <a class="white-text" href="./operator.php?id_to=<?= $tour_operator['id'] ?>&name=<?= $tour_operator['name'] ?>"><button class="float right btn">Nos voyages</button></a>
                                 
                         </div>
                     </div>
-                <?php }
-            ?>
-        </div>
+                </div>
+            <?php }
+        ?>
     </div>
 </div>

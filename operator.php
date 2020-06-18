@@ -27,7 +27,7 @@ include './partials/header.php';
 
        foreach ($destinationByOps as $destination) {?>
     
-        <div class="col s12 m7">
+    <div class="col s6">
         <h5 class="header"> <?= ucfirst($destination["location"])?><span class="right"><?=$destination['price']?>€</span></h5>
         <div class="card horizontal">
           <div class="card-image test">
