@@ -4,11 +4,13 @@ include './partials/header.php';
      include './classes/Review.php';
      include './classes/TourOperator.php';
      if(isset($_SESSION['id_admin'])){
-       include './partials/nav_connect.php';
-     }
-     else{
-       include './partials/nav_disconnet.php';
-     }
+      include './partials/nav_connect_admin.php';
+    }elseif(isset($_SESSION['id_to'])){
+      include './partials/nav_connect_to.php';
+    }
+    else{
+      include './partials/nav_disconnet.php';
+    }
      $manager = new Manager();
      $tourOp = new TourOperator();
      $review = new Review();

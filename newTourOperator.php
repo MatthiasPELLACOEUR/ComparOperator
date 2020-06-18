@@ -7,11 +7,13 @@ $manager->createTourOperator();
 include './partials/header.php';
 
 if(isset($_SESSION['id_admin'])){
-    include './partials/nav_connect.php';
-}
-else{
+    include './partials/nav_connect_admin.php';
+  }elseif(isset($_SESSION['id_to'])){
+    include './partials/nav_connect_to.php';
+  }
+  else{
     include './partials/nav_disconnet.php';
-}
+  }
 ?>
 
 <div class="container row form-register">
@@ -29,16 +31,6 @@ else{
                 <label class="active" for="TO-link">Lien du site Web</label>
                 </div>
             </div>
-            <!-- <div class="row">
-                <div class="input-field col s8">
-                    <select name="select-premium">
-                        <label>Compte Premium ?</label>
-                        <option value="" disabled selected>Choose your option</option>
-                        <option value="">Standard</option>
-                        <option value="premium">Premium</option>
-                    </select>
-                </div>
-            </div> -->
             <button class="btn waves-effect waves-light red right" type="submit" name="action">Submit
                 <i class="material-icons right">send</i>
             </button>

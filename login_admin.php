@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 include './classes/Manager.php';
 $manager = new Manager();
 

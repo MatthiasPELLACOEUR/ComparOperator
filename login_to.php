@@ -6,21 +6,21 @@ $manager = new Manager();
 
 
 if(isset($_POST['formConnect'])){
-    $mailConnect = $_POST['mailConnect'];
-    $passwordConnect = $_POST['passwordConnect'];
-    if(!empty($mailConnect) && !empty($passwordConnect)) {
-        $reqAdmin = $manager->bdd->prepare('SELECT * FROM admin WHERE mail = ? AND password = ?');
-        $reqAdmin->execute(array($mailConnect, $passwordConnect));
-        $adminExist = $reqAdmin->rowCount();
-        if($adminExist == 1){
-            $adminInfo = $reqAdmin->fetch();
-            $_SESSION['id_admin'] = $adminInfo['id'];
-            header('Location:  /admin.php?id_admin='. $_SESSION['id_admin']);
+    $toNameConnect = $_POST['toName'];
+    if(!empty($toNameConnect)) {
+        $reqTO = $manager->bdd->prepare('SELECT * FROM tour_operators WHERE name = ?');
+        $reqTO->execute(array($toNameConnect));
+        $TOexist = $reqTO->rowCount();
+        if($TOexist == 1){
+            $TOinfo = $reqTO->fetch();
+            $_SESSION['id_to'] = $TOinfo['id'];
+            $_SESSION['name'] = $toNameConnect;
+            header('Location:  /toPage.php?id_to='. $_SESSION['id_to']);
         }else{
-            $erreur = 'Wrong mail or password';
+            $erreur = 'Wrong name of Tour Operator';
         }
     }else {
-        $erreur = 'All fields must be completed.';
+        $erreur = 'All fields must be completed';
     }
     
 };
@@ -33,15 +33,12 @@ include './partials/nav_disconnet.php'
 
     <section class="container row register">
         <div class="col s12 m8 offset-m2 l6 offset-l3">
-            <h1 class="appname white-text">Login</h1>
+            <h1 class="black-text">Login</h1>
             <br><br><br>
             <form action="" method="post">
-                <label for="mailConnect">Mail :</label>
-                <input type="email" name="mailConnect" value="<?php if(isset($mailConnect)) { echo $mailConnect; }?>"><br>
-                <label for="password">Password :</label>
-                <input type="password" name="passwordConnect"><br>
-                <label for="register">Haven't an account ? </label>
-                    <a href="/register.php">Register!</a>
+                <label for="toName">Name Tour Operator :</label>
+                <input type="text" name="toName" value="<?php if(isset($toNameConnect)) { echo $toNameConnect; }?>"><br>
+                <label>Please contact admin to register ! </label>
                 <button class="btn waves-effect waves-light red right" type="submit" name="formConnect">Login
                     <i class="material-icons right">chevron_right</i>
                 </button>

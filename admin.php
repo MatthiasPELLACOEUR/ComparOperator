@@ -7,7 +7,7 @@ $adminWTO = $manager->bdd->prepare('SELECT *, tour_operators.id as id_to FROM to
 $adminWTO->execute(array($_SESSION['id_admin']));
 $admins = $adminWTO->fetchAll(PDO::FETCH_ASSOC);
 
-include './partials/nav_connect.php';
+include './partials/nav_connect_admin.php';
 include './partials/header.php';
 ?>
 
@@ -16,7 +16,7 @@ include './partials/header.php';
     <a href="./logout.php"><button class="btn red">Disconnect</button></a>
     <div class="row">
         <h5>Your TOs</h5>
-        <a href="../register.php"><button class="btn blue">Add a Tour Operator</button></a><br>
+        <a href="../newTourOperator.php"><button class="btn blue">Add a Tour Operator</button></a><br>
         <div class="card-content">
         <?php foreach($admins as $admin){
             echo $admin['name'].' grade : '; 

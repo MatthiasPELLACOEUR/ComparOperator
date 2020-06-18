@@ -4,7 +4,9 @@ session_start();
     $manager = new Manager();
     include './partials/header.php';
     if(isset($_SESSION['id_admin'])){
-      include './partials/nav_connect.php';
+      include './partials/nav_connect_admin.php';
+    }elseif(isset($_SESSION['id_to'])){
+      include './partials/nav_connect_to.php';
     }
     else{
       include './partials/nav_disconnet.php';

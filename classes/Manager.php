@@ -134,5 +134,28 @@ class Manager
 
   public function createDestination()
   {
+    if (isset($_POST['action'])) {
+      $location = htmlspecialchars($_POST['location']);
+      $price = $_POST['price'];
+      if (!empty($_POST['location']) && !empty($_POST['price']) && !empty($_SESSION['id_to'])) {
+        $reqLocation = $this->bdd->prepare('SELECT * FROM destinations WHERE location = ? AND id_tour_operator = ? AND price = ?');
+        $reqLocation->execute(array($location, $_SESSION['id_to'], $price));
+        $locationExist = $reqLocation->rowCount();
+        if ($locationExist == 0) {
+          $locationLen = strlen($location);
+          if ($locationLen <= 255) {
+              $insertDestination = $this->bdd->prepare('INSERT INTO destinations(location, price, id_tour_operator) VALUES (?, ?, ?)');
+              $insertDestination->execute(array($location, $price, $_SESSION['id_to']));
+              header('Location: ..//toPage.php?id_to='.$_SESSION['id_to']);       
+            }
+        } else {
+          echo '<div class="container row"><div class="col s8 offset-s3"><font color="red">This location is already used.</font></div></div>';
+        }
+      } else {
+        echo '<font color="red">All fields must be completed.</font>';
+      }
+    }
   }
 }
+  
+
