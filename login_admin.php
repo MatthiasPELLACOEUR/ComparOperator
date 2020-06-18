@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 include './classes/Manager.php';
 $manager = new Manager();
 
@@ -26,6 +25,7 @@ if(isset($_POST['formConnect'])){
 };
 
 include './partials/header.php';
+include './partials/nav_disconnet.php'
 ?>
 
 <body>

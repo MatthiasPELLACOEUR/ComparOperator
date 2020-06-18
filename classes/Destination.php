@@ -35,11 +35,14 @@ class Destination
 
 include '../partials/header.php';
 if(isset($_SESSION['id_admin'])){
-  include '../partials/nav_connect.php';
+  include '../partials/nav_connect_admin.php';
+}elseif(isset($_SESSION['id_to'])){
+  include '../partials/nav_connect_to.php';
 }
 else{
   include '../partials/nav_disconnet.php';
-}$manager = new Manager();
+}
+$manager = new Manager();
 $destination = new Destination();
 
 
@@ -55,7 +58,7 @@ $destination = new Destination();
             <div class="card white to_by_destination">
               <div class="card-content black-text">
                 
-                <span class="card-title"><a class="blue-text" href="../operator.php?id=<?= $operator['id_tour_operator'] ?>&amp;name=<?= $operator['name'] ?>"> <?=$operator["name"]?> </a> <span class="right"><?= $operator['price'] ?>€</span> </span>
+                <span class="card-title"><a class="blue-text" href="../operator.php?id_to=<?= $operator['id_tour_operator'] ?>&amp;name=<?= $operator['name'] ?>"> <?=$operator["name"]?> </a> <span class="right"><?= $operator['price'] ?>€</span> </span>
                 <p>I am a very simple card. I am good at containing small bits of information.
                 I am convenient because I require little markup to use effectively.</p>
               </div>
