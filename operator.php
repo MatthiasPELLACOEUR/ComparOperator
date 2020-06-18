@@ -1,8 +1,14 @@
 <?php
+session_start();
+include './partials/header.php';
      include './classes/Review.php';
      include './classes/TourOperator.php';
-     include './partials/header.php';
-     include './partials/nav.php';
+     if(isset($_SESSION['id_admin'])){
+       include './partials/nav_connect.php';
+     }
+     else{
+       include './partials/nav_disconnet.php';
+     }
      $manager = new Manager();
      $tourOp = new TourOperator();
      $review = new Review();
@@ -13,6 +19,8 @@
 <div class="container">
     <h4><?=ucfirst($_GET['name'])?></h4>
     <?php $tourOp->getIsPremium(); ?>
+
+    <button><a href="./logout.php">Disconnect</a></button>
 
     <div class="row">
        <?php $destinationByOps = $manager->getDestinationByOperatorId();

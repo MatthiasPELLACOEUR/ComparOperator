@@ -1,5 +1,4 @@
 <?php
-
 class Manager
 {
 
@@ -117,10 +116,9 @@ class Manager
             $reqLink->execute(array($toLink));
             $toLinkExist = $reqLink->rowCount();
             if ($toLinkExist == 0) {
-              $insertTo = $this->bdd->prepare('INSERT INTO tour_operators(name, link) VALUES (?, ?)');
-              $insertTo->execute(array($toName, $toLink));
-              var_dump($toLink);
-              echo "<font color='green'>Your Tour Opérator has been successfully created.</font>";
+              $insertTo = $this->bdd->prepare('INSERT INTO tour_operators(name, link, id_admin) VALUES (?, ?, ?)');
+              $insertTo->execute(array($toName, $toLink, $_SESSION['id_admin']));
+              header('Location: ../admin.php?id_admin='.$_SESSION['id_admin']);       
             } else {
               echo '<font color="red">Your link is already used.</font>';
             }

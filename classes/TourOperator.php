@@ -24,9 +24,9 @@ class TourOperator
 
     }
 
-    public function getGrade()
+    public function delete()
     {
-
+        
     }
 
     public function getLink()

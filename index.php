@@ -3,8 +3,12 @@
     include './classes/Manager.php';
     $manager = new Manager();
     include './partials/header.php';
-    include './partials/nav.php'
-
+    if(isset($_SESSION['id_admin'])){
+      include './partials/nav_connect.php';
+    }
+    else{
+      include './partials/nav_disconnet.php';
+    }
 ?>
 
 <div class="container-fluid">

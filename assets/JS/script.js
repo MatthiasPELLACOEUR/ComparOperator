@@ -19,3 +19,8 @@
   $(document).ready(function(){
     $('select').formSelect();
   });
+
+  //modal
+  $(document).ready(function(){
+    $('.modal').modal();
+  });

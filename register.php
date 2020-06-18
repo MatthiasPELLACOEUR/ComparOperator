@@ -1,11 +1,17 @@
 <?php
-
-
-include './partials/header.php';
-include './partials/nav.php';
-
+session_start();
 include './classes/Manager.php';
 $manager = new Manager();
+
+$manager->createTourOperator();
+include './partials/header.php';
+
+if(isset($_SESSION['id_admin'])){
+    include './partials/nav_connect.php';
+}
+else{
+    include './partials/nav_disconnet.php';
+}
 ?>
 
 <div class="container row form-register">
@@ -41,5 +47,4 @@ $manager = new Manager();
 </div>
 
 <?php
-$manager->createTourOperator();
 // include './partials/footer.php';

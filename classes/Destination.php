@@ -34,8 +34,12 @@ class Destination
 }
 
 include '../partials/header.php';
-include '../partials/nav.php';
-$manager = new Manager();
+if(isset($_SESSION['id_admin'])){
+  include '../partials/nav_connect.php';
+}
+else{
+  include '../partials/nav_disconnet.php';
+}$manager = new Manager();
 $destination = new Destination();
 
 
