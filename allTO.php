@@ -1,7 +1,11 @@
 <?php
 include './partials/header.php';
-include './partials/nav.php';
-include './classes/TourOperator.php';
+if(isset($_SESSION['id_admin'])){
+    include './partials/nav_connect.php';
+  }
+  else{
+    include './partials/nav_disconnet.php';
+  }include './classes/TourOperator.php';
 $manager = new Manager();
 ?>
 
@@ -14,7 +18,7 @@ $manager = new Manager();
                         <div class="card-content">
                             <?php echo ucfirst($tour_operator["name"]);?>
 
-                            <button class="right btn"><a class="white-text" href="./operator.php?id=<?= $tour_operator['id'] ?>&name=<?= $tour_operator['name'] ?>"> Nos voyages</a></button>
+                            <a class="white-text" href="./operator.php?id=<?= $tour_operator['id'] ?>&name=<?= $tour_operator['name'] ?>"><button class="right btn">Nos voyages</button></a>
                                 
                         </div>
                     </div>

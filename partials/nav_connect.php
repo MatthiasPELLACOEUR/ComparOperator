@@ -5,8 +5,7 @@
       <ul class="right hide-on-med-and-down">
         <li><a href="../allTO.php">Tour Operators</a></li>
         <li><a href="../allDestinations.php">Destinations</a></li>
-        <li><a href="../login.php">Login</a></li>
-        <li><a href="../register.php">Register</a></li>
+        <li><a href="../admin.php?id_admin=<?=$_SESSION['id_admin']?>">Admin</a></li>
       </ul>
     </div>
   </nav>
@@ -14,6 +13,5 @@
   <ul class="sidenav" id="mobile-demo">
         <li><a href="../allTO.php">Tour Operators</a></li>
         <li><a href="../allDestinations.php">Destinations</a></li>
-        <li><a href="../login.php">Login</a></li>
-        <li><a href="../register.php">Register</a></li>
+        <li><a href="../admin.php?id_admin=<?=$_SESSION['id_admin']?>">Admin</a></li>
   </ul>
