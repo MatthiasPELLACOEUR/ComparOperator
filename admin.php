@@ -13,32 +13,31 @@ include './partials/header.php';
 
 <div class="container">
     <h4>Admin</h4>
-    <a href="./logout.php"><button class="btn red">Disconnect</button></a>
     <div class="row">
         <h5>Your TOs</h5>
         <a href="../newTourOperator.php"><button class="btn blue">Add a Tour Operator</button></a><br>
-        <div class="card-content">
-        <?php foreach($admins as $admin){
-            echo $admin['name'].' grade : '; 
-            echo $admin['grade'].'/5 ';
-            echo '<button class="btn green right">Edit</button>';
-            echo '<a class="btn red modal-trigger right" href="#modal1">Delete</a>
-            
-                      
-            <div id="modal1" class="modal">
-              <div class="modal-content">
-                <h4>Confirm delete ?</h4>
-              </div>
-              <div class="modal-footer">
-                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Confirm</a>
-                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
-              </div>
-            </div><br>';
-          }
-
-        ?>
-        </div>
-    </div>
+        <?php foreach($admins as $admin){?>
+          <div class="card">
+            <div class="card-content">
+              <h5 class="float left"><?= $admin['name'] ?></h5><p class="float right">Grade : <?= $admin['grade'] ?>/5</p><br>
+              <br><button class="btn green right">Edit</button>
+              <a class="btn red modal-trigger right" href="#modal1">Delete</a><br>
+              
+                        
+              <div id="modal1" class="modal">
+                <div class="modal-content">
+                  <h4>Warning!</h4><br>
+                  <p>Do you really want to delete this destination ?</p>
+                </div>
+                <div class="modal-footer">
+                  <a href="#!" class="modal-close btn red waves-effect white-text waves-red btn-flat">Confirm</a>
+                  <a href="#!" class="modal-close btn blue waves-effect white-text waves-blue btn-flat">Cancel</a>
+                </div>
+              </div><br>
+            </div>
+          </div>
+        <?php } ?>
+     </div>
 </div>
 
 <?php

@@ -2,4 +2,4 @@
 
 session_start();
 session_destroy();
-header('Location: /indexphp');
+header('Location: /index.php');

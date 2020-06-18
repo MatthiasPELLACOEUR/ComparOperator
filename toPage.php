@@ -9,17 +9,11 @@ $review = new Review();
 
 
 ?>
- <a href="../newDestination.php"><button class="btn blue">Add a destination</button></a><br>
-
-<a href="./logout.php">
-<button class="btn red">
-Disconnect
-</button>
-</a>
-
 <div class="container">
     <h4>Destinations : </h4>
     
+    <a href="../newDestination.php"><button class="btn blue">Add a destination</button></a><br>
+
 
     <div class="row">
        <?php $destinationByOps = $manager->getDestinationByToId();
@@ -27,7 +21,7 @@ Disconnect
        foreach ($destinationByOps as $destination) {?>
     
         <div class="col s12 m7">
-        <h5 class="header"> <?= ucfirst($destination["location"])?> <span> <?= $destination['id_tour_operator']?></span> <span class="right"><?=$destination['price']?>€</span></h5>
+        <h5 class="header"> <?= ucfirst($destination["location"])?></span> <span class="right"><?=$destination['price']?>€</span></h5>
         <div class="card horizontal">
           <div class="card-image test">
           <img src="./assets/IMG/<?=$destination['photos']?>">

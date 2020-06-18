@@ -18,7 +18,7 @@ class Manager
 
   public function getAllDestinations()
   {
-    $reqDestinations = $this->bdd->query('SELECT * FROM destinations GROUP BY location ORDER BY location');
+    $reqDestinations = $this->bdd->query('SELECT location FROM destinations GROUP BY location ORDER BY location');
 
     return $reqDestinations->fetchAll(PDO::FETCH_ASSOC);
 
@@ -27,7 +27,7 @@ class Manager
 
   public function getDestinationsLimit()
   {
-    $reqDestinations = $this->bdd->query('SELECT * FROM destinations GROUP BY location LIMIT 4');
+    $reqDestinations = $this->bdd->query('SELECT location, photos FROM destinations GROUP BY location, photos LIMIT 4');
 
     return $reqDestinations->fetchAll(PDO::FETCH_ASSOC);
 

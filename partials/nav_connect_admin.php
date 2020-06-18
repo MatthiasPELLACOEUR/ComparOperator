@@ -6,6 +6,7 @@
         <li><a href="../allTO.php">Tour Operators</a></li>
         <li><a href="../allDestinations.php">Destinations</a></li>
         <li><a href="../admin.php?id_admin=<?=$_SESSION['id_admin']?>">Admin</a></li>
+        <li><a href="./logout.php">Disconnect</a></li>
       </ul>
     </div>
   </nav>
@@ -14,4 +15,6 @@
         <li><a href="../allTO.php">Tour Operators</a></li>
         <li><a href="../allDestinations.php">Destinations</a></li>
         <li><a href="../admin.php?id_admin=<?=$_SESSION['id_admin']?>">Admin</a></li>
+        <li><a href="./logout.php"><button class="btn red">Disconnect</button></a></li>
+
   </ul>

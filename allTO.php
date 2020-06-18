@@ -22,7 +22,7 @@ $manager = new Manager();
                         <div class="card-content">
                             <?php echo ucfirst($tour_operator["name"]);?>
 
-                            <a class="white-text" href="./operator.php?id=<?= $tour_operator['id'] ?>&name=<?= $tour_operator['name'] ?>"><button class="right btn">Nos voyages</button></a>
+                            <a class="white-text" href="./operator.php?id_to=<?= $tour_operator['id'] ?>&name=<?= $tour_operator['name'] ?>"><button class="right btn">Nos voyages</button></a>
                                 
                         </div>
                     </div>

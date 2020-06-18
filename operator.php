@@ -28,7 +28,7 @@ include './partials/header.php';
        foreach ($destinationByOps as $destination) {?>
     
         <div class="col s12 m7">
-        <h5 class="header"> <?= ucfirst($destination["location"])?> <span> <?= $destination['id_tour_operator']?></span> <span class="right"><?=$destination['price']?>€</span></h5>
+        <h5 class="header"> <?= ucfirst($destination["location"])?><span class="right"><?=$destination['price']?>€</span></h5>
         <div class="card horizontal">
           <div class="card-image test">
           <img src="./assets/IMG/<?=$destination['photos']?>">
