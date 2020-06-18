@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql
--- Generation Time: Jun 16, 2020 at 11:55 AM
+-- Generation Time: Jun 18, 2020 at 11:59 AM
 -- Server version: 10.3.22-MariaDB-1:10.3.22+maria~bionic
 -- PHP Version: 7.3.16
 
@@ -21,6 +21,25 @@ SET time_zone = "+00:00";
 --
 -- Database: `ComparOperator`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `mail` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id`, `password`, `mail`) VALUES
+(2, 'motdepasse', 'exemple@test.com');
 
 -- --------------------------------------------------------
 
@@ -65,7 +84,9 @@ CREATE TABLE `reviews` (
 --
 
 INSERT INTO `reviews` (`id`, `message`, `author`, `id_tour_operator`) VALUES
-(1, 'super club !', 'alex', 1);
+(1, 'super club !', 'alex', 1),
+(3, 'Bravo !', 'Loulou', 3),
+(4, 'super vacances!', 'Matthias', 1);
 
 -- --------------------------------------------------------
 
@@ -76,22 +97,30 @@ INSERT INTO `reviews` (`id`, `message`, `author`, `id_tour_operator`) VALUES
 CREATE TABLE `tour_operators` (
   `id` int(10) NOT NULL,
   `name` varchar(150) NOT NULL,
-  `grade` int(2) NOT NULL,
+  `grade` int(2) DEFAULT NULL,
   `link` varchar(255) NOT NULL,
-  `is_premium` tinyint(1) NOT NULL DEFAULT 0
+  `is_premium` tinyint(1) NOT NULL DEFAULT 0,
+  `id_admin` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tour_operators`
 --
 
-INSERT INTO `tour_operators` (`id`, `name`, `grade`, `link`, `is_premium`) VALUES
-(1, 'club med', 5, 'https://www.clubmed.fr/', 0),
-(3, 'Pierre&Vacances', 3, 'https://www.pierreetvacances.com/', 0);
+INSERT INTO `tour_operators` (`id`, `name`, `grade`, `link`, `is_premium`, `id_admin`) VALUES
+(1, 'Club Med', 5, 'https://www.clubmed.fr/', 1, 2),
+(3, 'Pierre et Vacances', 3, 'https://www.pierreetvacances.com/', 1, 2),
+(5, 'Thomas Cook', 4, 'http://www.thomascook-groupe.fr/', 0, 2);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `destinations`
@@ -111,29 +140,36 @@ ALTER TABLE `reviews`
 -- Indexes for table `tour_operators`
 --
 ALTER TABLE `tour_operators`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `admin` (`id_admin`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `destinations`
 --
 ALTER TABLE `destinations`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tour_operators`
 --
 ALTER TABLE `tour_operators`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- Constraints for dumped tables

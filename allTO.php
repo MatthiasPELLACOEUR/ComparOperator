@@ -1,4 +1,5 @@
 <?php
+session_start();
 include './partials/header.php';
 if(isset($_SESSION['id_admin'])){
     include './partials/nav_connect.php';

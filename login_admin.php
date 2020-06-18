@@ -26,6 +26,7 @@ if(isset($_POST['formConnect'])){
 };
 
 include './partials/header.php';
+include './partials/nav_disconnet.php'
 ?>
 
 <body>

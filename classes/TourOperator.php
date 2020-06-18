@@ -16,7 +16,7 @@ class TourOperator
     
     public function getId()
     {
-        
+
     }
 
     public function getName()
@@ -26,7 +26,9 @@ class TourOperator
 
     public function delete()
     {
-        
+        $manager = new Manager();
+        $manager->bdd->exec('DELETE FROM tour_operators WHERE tour_operators.id =  '. $_GET['id']);
+
     }
 
     public function getLink()

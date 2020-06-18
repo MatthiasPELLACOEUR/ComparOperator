@@ -20,15 +20,13 @@ include './partials/header.php';
     <h4><?=ucfirst($_GET['name'])?></h4>
     <?php $tourOp->getIsPremium(); ?>
 
-    <button><a href="./logout.php">Disconnect</a></button>
-
     <div class="row">
        <?php $destinationByOps = $manager->getDestinationByOperatorId();
 
        foreach ($destinationByOps as $destination) {?>
     
         <div class="col s12 m7">
-        <h5 class="header"> <?= ucfirst($destination["location"])?> <span class="right"><?=$destination['price']?>€</span></h5>
+        <h5 class="header"> <?= ucfirst($destination["location"])?> <span> <?= $destination['id_tour_operator']?></span> <span class="right"><?=$destination['price']?>€</span></h5>
         <div class="card horizontal">
           <div class="card-image test">
           <img src="./assets/IMG/<?=$destination['photos']?>">
