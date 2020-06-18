@@ -6,8 +6,8 @@
      $manager = new Manager();
      $tourOp = new TourOperator();
      $review = new Review();
-    //  $review->getAuthor();
-     
+     $manager->createReview(); 
+
      ?>
 
 <div class="container">
@@ -43,16 +43,16 @@
     </div>
     <h5>Add a review</h5>
     <div class="row">
-      <form action="post" class="form-review">
+      <form action="" method="post" class="form-review">
         <input type="text" class="col s5" name="author" placeholder="Your name">
         <input type="text" name="message" placeholder="Your message">
-        <button class="btn waves-effect waves-light red right" type="submit" name="formAction">Submit
+        <button class="btn waves-effect waves-light red" type="submit" name="formAction">Submit
                 <i class="material-icons right">send</i>
         </button>
       </form>
     </div>
 </div>
 <?php
-//$manager->createReview(); 
+
 
 include './partials/footer.php';

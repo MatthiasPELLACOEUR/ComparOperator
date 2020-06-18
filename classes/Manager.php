@@ -49,7 +49,7 @@ class Manager
 
   public function createReview()
   {
-    /* if (isset($_POST['formAction'])) {
+    if (isset($_POST['formAction'])) {
       $toAuthor = htmlspecialchars($_POST['author']);
       $toMessage = htmlspecialchars($_POST['message']);
       if (!empty($_POST['author']) && !empty($_POST['message'])) {
@@ -63,8 +63,8 @@ class Manager
             $reqMessage->execute(array($toMessage));
             $toMessageExist = $reqMessage->rowCount();
             if ($toMessageExist == 0) {
-              $insertMessage = $this->bdd->prepare('INSERT INTO reviews(author, message) VALUES (?, ?)');
-              $insertMessage->execute(array($toAuthor, $toMessage));
+              $insertMessage = $this->bdd->prepare('INSERT INTO reviews(author, message, id_tour_operator) VALUES (?, ?, ?)');
+              $insertMessage->execute(array($toAuthor, $toMessage, $_GET['id']));
 
               echo "<font color='green'>Your Message has been posted.</font>";
             } else {
@@ -77,7 +77,7 @@ class Manager
       } else {
         echo '<font color="red">All fields must be completed.</font>';
       }
-    } */
+    } 
   }
 
   public function getDestinationByOperatorId()
