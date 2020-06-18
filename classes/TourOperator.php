@@ -34,7 +34,7 @@ class TourOperator
     public function getLink()
     {
         $manager = new Manager();
-        $reqLinks = $manager->bdd->query('SELECT link FROM tour_operators WHERE id = '. $_GET['id']);
+        $reqLinks = $manager->bdd->query('SELECT link FROM tour_operators WHERE id = '. $_GET['id_to']);
 
         $links = $reqLinks->fetchAll(PDO::FETCH_ASSOC);
 
@@ -49,7 +49,7 @@ class TourOperator
     {
         
         $manager = new Manager();
-        $reqIsPremium = $manager->bdd->query('SELECT is_premium FROM tour_operators WHERE id ='. $_GET['id']);
+        $reqIsPremium = $manager->bdd->query('SELECT is_premium FROM tour_operators WHERE id ='. $_GET['id_to']);
 
         $isPremiums = $reqIsPremium->fetchAll(PDO::FETCH_ASSOC);
         // var_dump($isPremiums);

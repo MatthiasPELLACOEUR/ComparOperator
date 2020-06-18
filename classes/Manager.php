@@ -82,11 +82,21 @@ class Manager
   public function getDestinationByOperatorId()
   {
     $reqDestinationByOp = $this->bdd->prepare('SELECT *, tour_operators.id as id FROM tour_operators INNER JOIN destinations ON destinations.id_tour_operator = tour_operators.id WHERE tour_operators.id = ?');
-    $reqDestinationByOp->execute(array($_GET['id']));
+    $reqDestinationByOp->execute(array($_GET['id_to']));
 
     return $reqDestinationByOp->fetchAll(PDO::FETCH_ASSOC);
     
   }
+
+  public function getDestinationByToId()
+  {
+    $reqDestinationByOp = $this->bdd->prepare('SELECT *, tour_operators.id as id FROM tour_operators INNER JOIN destinations ON destinations.id_tour_operator = tour_operators.id WHERE tour_operators.id = ?');
+    $reqDestinationByOp->execute(array($_GET['id_to']));
+
+    return $reqDestinationByOp->fetchAll(PDO::FETCH_ASSOC);
+    
+  }
+
 
   public function getAllOperator()
   {

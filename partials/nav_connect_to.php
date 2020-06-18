@@ -13,5 +13,5 @@
   <ul class="sidenav" id="mobile-demo">
         <li><a href="../allTO.php">Tour Operators</a></li>
         <li><a href="../allDestinations.php">Destinations</a></li>
-        <li><a href="../admin.php?id_admin=<?=$_SESSION['']?>"><?=$_SESSION['name']?></a></li>
+        <li><a href="../admin.php?id_admin=<?=$_SESSION['id_to']?>"><?=$_SESSION['name']?></a></li>
   </ul>

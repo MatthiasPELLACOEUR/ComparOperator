@@ -17,7 +17,7 @@ class Review
       '',
       array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
     );
-    $this->id_tour_operator = $_GET['id'];
+    $this->id_tour_operator = $_GET['id_to'];
   }
 
     public function getId()
