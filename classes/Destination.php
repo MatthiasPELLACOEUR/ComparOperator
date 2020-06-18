@@ -73,7 +73,7 @@ $destination = new Destination();
         <div class="col s12 m6">
           <div class="card white">
             <div class="card-content black-text">
-              <span class="card-title"><a class="blue-text" href="../operator.php?id=<?= $operator['id_tour_operator'] ?>&amp;name=<?= $operator['name']?>"><?= $operator["name"] ?></a> <span class="right"><?= $operator['price'] ?>€</span> </span>
+              <span class="card-title"><a class="blue-text" href="../operator.php?id_to=<?= $operator['id_tour_operator'] ?>&amp;name=<?= $operator['name']?>"><?= $operator["name"] ?></a> <span class="right"><?= $operator['price'] ?>€</span> </span>
               
 
               <p>I am a very simple card. I am good at containing small bits of information.
