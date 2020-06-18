@@ -47,7 +47,6 @@ class TourOperator
 
     public function getIsPremium()
     {
-        
         $manager = new Manager();
         $reqIsPremium = $manager->bdd->query('SELECT is_premium FROM tour_operators WHERE id ='. $_GET['id_to']);
 
@@ -61,5 +60,13 @@ class TourOperator
                 // echo 'au revoir';
             }
         }
+    }
+
+    public function setIsPremium()
+    {
+        $manager = new Manager();
+        $reqIsPremium = $manager->bdd->prepare('UPDATE tour_operators SET is_premium = :isPremium WHERE id = '.$_SESSION['id_to']);
+        $reqIsPremium->execute(array(':isPremium' => $_SESSION['isPremium']));
+
     }
 }
