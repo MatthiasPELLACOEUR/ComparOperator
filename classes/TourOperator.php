@@ -33,8 +33,10 @@ class TourOperator
 
     public function delete()
     {
-        $manager = new Manager();
-        $manager->bdd->exec('DELETE FROM tour_operators WHERE tour_operators.id =  '. $_GET['id']);
+        if(isset($_POST['submit'])){
+            $manager = new Manager();
+            $manager->bdd->exec('DELETE FROM tour_operators WHERE tour_operators.id ='. $_POST['id_to']);
+        }
 
     }
 

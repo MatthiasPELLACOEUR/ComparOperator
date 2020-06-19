@@ -1,6 +1,8 @@
 <?php
 session_start();
-include './classes/Manager.php';
+// include './classes/Manager.php';
+include './classes/TourOperator.php';
+$TourOp = new TourOperator();
 $manager = new Manager();
 
 $adminWTO = $manager->bdd->prepare('SELECT *, tour_operators.id as id_to FROM tour_operators INNER JOIN admin  ON admin.id = tour_operators.id_admin WHERE admin.id = ?');
@@ -19,21 +21,14 @@ include './partials/header.php';
         <?php foreach($admins as $admin){?>
           <div class="card">
             <div class="card-content">
-              <h5 class="float left"><?= $admin['name'] ?></h5><p class="float right">Grade : <?= $admin['grade'] ?>/5</p><br>
+              <h5 class="float left"><?= $admin['name']?></h5><p class="float right">Grade : <?= $admin['grade'] ?>/5</p><br>
               <br><button class="btn green right">Edit</button>
-              <a class="btn red modal-trigger right" href="#modal1">Delete</a><br>
-              
-                        
-              <div id="modal1" class="modal">
-                <div class="modal-content">
-                  <h4>Warning!</h4><br>
-                  <p>Do you really want to delete this destination ?</p>
-                </div>
-                <div class="modal-footer">
-                  <a href="#!" class="modal-close btn red waves-effect white-text waves-red btn-flat">Confirm</a>
-                  <a href="#!" class="modal-close btn blue waves-effect white-text waves-blue btn-flat">Cancel</a>
-                </div>
-              </div><br>
+
+              <form action="./delete.php" method="post">
+                <input type="hidden" name="id_to" value="<?=$admin['id_to']?>">
+                <button class="btn waves-effect white-text waves-red btn-flat red right " name="submit" type="submit">Delete</button><br>
+              </form>
+
             </div>
           </div>
         <?php } ?>
