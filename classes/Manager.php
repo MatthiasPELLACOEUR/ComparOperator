@@ -116,9 +116,9 @@ class Manager
       $toName = htmlspecialchars($_POST['TO-name']);
       $toLink = $_POST['TO-link'];
       if (!empty($_POST['TO-name']) && !empty($_POST['TO-link'])) {
-        $reqNickname = $this->bdd->prepare('SELECT * FROM tour_operators WHERE name = ?');
-        $reqNickname->execute(array($toName));
-        $toNameExist = $reqNickname->rowCount();
+        $reqName = $this->bdd->prepare('SELECT * FROM tour_operators WHERE name = ?');
+        $reqName->execute(array($toName));
+        $toNameExist = $reqName->rowCount();
         if ($toNameExist == 0) {
           $toNameLen = strlen($toName);
           if ($toNameLen <= 255) {
@@ -147,16 +147,21 @@ class Manager
     if (isset($_POST['action'])) {
       $location = htmlspecialchars($_POST['location']);
       $price = $_POST['price'];
-      if (!empty($_POST['location']) && !empty($_POST['price']) && !empty($_SESSION['id_to'])) {
-        $reqLocation = $this->bdd->prepare('SELECT * FROM destinations WHERE location = ? AND id_tour_operator = ? AND price = ?');
-        $reqLocation->execute(array($location, $_SESSION['id_to'], $price));
-        $locationExist = $reqLocation->rowCount();
-        if ($locationExist == 0) {
-          $locationLen = strlen($location);
-          if ($locationLen <= 255) {
-              $insertDestination = $this->bdd->prepare('INSERT INTO destinations(location, price, id_tour_operator) VALUES (?, ?, ?)');
-              $insertDestination->execute(array($location, $price, $_SESSION['id_to']));
-              header('Location: ..//toPage.php?id_to='.$_SESSION['id_to']);       
+      if (!empty($_POST['location']) && !empty($_POST['price']) && !empty($_SESSION['id_to']) && isset($_FILES['monfichier']) AND $_FILES['monfichier']['error'] == 0) {
+        $reqLocation = $this->bdd->prepare('SELECT * FROM destinations WHERE location = ?');
+        $reqLocation->execute(array($location));
+        $toLocationExist = $reqLocation->rowCount();
+        if ($_FILES['monfichier']['size'] <= 1000000 && $toLocationExist == 0) {
+            $infosfichier = pathinfo($_FILES['monfichier']['name']);
+            $extension_upload = $infosfichier['extension'];
+            $extensions_autorisees = array('jpg', 'jpeg', 'gif', 'png');
+            $photosToBdd = basename($_FILES['monfichier']['name']);
+            $locationLen = strlen($location);
+            if ($locationLen <= 255 && in_array($extension_upload, $extensions_autorisees)) {
+              move_uploaded_file($_FILES['monfichier']['tmp_name'], './assets/IMG/' . basename($_FILES['monfichier']['name']));
+              $insertDestination = $this->bdd->prepare('INSERT INTO destinations(location, price, id_tour_operator, photos) VALUES (?, ?, ?, ?)');
+              $insertDestination->execute(array($location, $price, $_SESSION['id_to'], $photosToBdd));
+     
             }
         } else {
           echo '<div class="container row"><div class="col s8 offset-s3"><font color="red">This location is already used.</font></div></div>';

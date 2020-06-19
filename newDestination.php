@@ -3,15 +3,13 @@ session_start();
 include './classes/Manager.php';
 $manager = new Manager();
 
-$manager->createDestination();
 include './partials/header.php';
 include './partials/nav_connect_to.php';
-
 ?>
 
 <div class="container row form-register">
     <div class="col s8 offset-s3">
-        <form method="POST" action="">
+        <form method="POST" action="./toPage.php?id_to=<?=$_SESSION['id_to'] ?>" enctype="multipart/form-data">
             <div class="row">
                 <div class="input-field col s8">
                 <input type="text" name="location" class="validate">
@@ -24,12 +22,18 @@ include './partials/nav_connect_to.php';
                 <label class="active" for="price">Price</label>
                 </div>
             </div>
+            <p>
+                Add a picture :<br />
+                <input type="file" name="monfichier" />
+        </p>
+
             <button class="btn waves-effect waves-light red right" type="submit" name="action">Submit
                 <i class="material-icons right">send</i>
             </button>
         </form>
     </div>
 </div>
+
 
 <?php
 // include './partials/footer.php';

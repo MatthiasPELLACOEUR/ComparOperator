@@ -1,7 +1,5 @@
 <?php
 session_start();
-include './partials/header.php';
-include './partials/nav_connect_to.php';
 // include './classes/Manager.php';
 include './classes/Review.php';
 include './classes/TourOperator.php';
@@ -13,6 +11,8 @@ if(isset($_POST['submit'])){
   $_SESSION['isPremium'] = $_POST['main'];//Retrieve the Option Value;
   $TourOp->setIsPremium();
 }
+include './partials/header.php';
+include './partials/nav_connect_to.php';
 ?>
 <div class="container">
   <div class="row">
@@ -54,7 +54,11 @@ if(isset($_POST['submit'])){
   <div class="row">
     <div class="col s3">
     <h4>Destinations : </h4>
-    <a href="../newDestination.php"><button class="btn blue">Add a destination</button></a>
+    <a href="../newDestination.php"><button class="btn blue">Add a destination</button></a><br>
+
+
+    <?php $manager->createDestination();?>
+
     </div>
       <form method="post" class="col s3 float right">
       
