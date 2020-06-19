@@ -18,13 +18,16 @@ session_start();
       <div class="parallax"><img src="./assets/IMG/plage.jpg"></div>
 </div> 
 
+
     <div class="section white">
       <div class="row container">
-        <h2 class="header">Choose your destination</h2>
-       
+        <div class="header-pcontainer">
+          <h2 class="header">Choose your destination</h2>
+          <a href="./allDestinations.php"><button class="btn blue list-btn-dest">Voir toutes les destinations</button></a><br>
+          <p class="grey-text text-darken-3 lighten-3">Click on the card of your choice.</p>
+        </div>
 
 
-        <p class="grey-text text-darken-3 lighten-3">Click on the card of your choice.</p>
         <div class="carousel">
             <?php $destinations = $manager->getDestinationsLimit();
             foreach ($destinations as $destination) {?>

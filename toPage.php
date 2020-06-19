@@ -52,7 +52,7 @@ include './partials/nav_connect_to.php';
   </div>
   
   <div class="row">
-    <div class="col s3">
+    <div class="col s4">
     <h4>Destinations : </h4>
     <a href="../newDestination.php"><button class="btn blue">Add a destination</button></a><br>
 
@@ -94,6 +94,12 @@ include './partials/nav_connect_to.php';
           <div class="card-stacked">
             <div class="card-content">
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> <br><br>
+              
+              <form action="./delete.php" method="post">
+                <input type="hidden" name="id_destination" value="<?=$destination['id_destination']?>">
+                <button class="btn waves-effect white-text waves-red btn-flat red right " name="submitDest" type="submit">Delete</button><br>
+              </form>
+
               <h5 class="right"><?=$destination['price']?>€</h5>
             </div>
           </div>

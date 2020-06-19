@@ -8099,10 +8099,16 @@ body {
   width: 500px;
 }
 
+.header-pcontainer {
+  position: relative;
+  z-index: 28;
+}
+
 .carousel {
   margin-top: -250px;
   margin-left: -150px;
   height: 750px;
+  z-index: 0;
 }
 
 .to_by_destination {
