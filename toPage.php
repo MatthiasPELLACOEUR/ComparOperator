@@ -15,23 +15,59 @@ if(isset($_POST['submit'])){
 }
 ?>
 <div class="container">
-    <h4>Destinations : </h4>
-    
-    <a href="../newDestination.php"><button class="btn blue">Add a destination</button></a><br><br><br>
+  <div class="row">
+    <div class="card">
+      <div class="card-content">
+          <?php 
+            $infoTourOp = $TourOp->getInfos();
+          ?>
+          <div class="col s4">
 
-    <div class="row">
-      <form method="post" class="col s3">
+            <span>your name</span>
+            <h4><?=$infoTourOp['name']?></h4>
+
+          </div>
+
+          <div class="col s4 center">
+            <span>your status</span>
+            <?php if($infoTourOp['is_premium'] == "1"){?>
+                <h4>Premium</h4>
+            <?php }else if($infoTourOp['is_premium'] == "0"){?>
+                <h4>Standard</h4>
+            <?php }?>
+     
+
+          </div>
+          <div class="col s4 right-align">
+
+              <span>your grade</span>
+          <h4><?=$infoTourOp['grade']?>/5</h4>
+
+          </div>
+          
+          <br><br><br><br>
+
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col s3">
+    <h4>Destinations : </h4>
+    <a href="../newDestination.php"><button class="btn blue">Add a destination</button></a>
+    </div>
+      <form method="post" class="col s3 float right">
       
         <select name="main">
-            <?php if($_SESSION['isPremium'] == "1"){?>
+            <?php if($infoTourOp['is_premium'] == "1"){?>
                 <option value="1" selected>Premium</option>
                 <option value="0">Standard</option>
-            <?php }else if($_SESSION['isPremium'] == "0"){?>
+            <?php }else if($infoTourOp['is_premium'] == "0"){?>
                 <option value="1">Premium</option>
                 <option value="0" selected>Standard</option>
-            <?php }else if(!isset($_SESSION['isPremium'])){?>
-                <option value="1">Premium</option>
+            <?php }else if(!isset($infoTourOp['is_premium'])){?>
                 <option value="0">Standard</option>
+                <option value="1">Premium</option>
             <?php } ?> 
             
         </select>

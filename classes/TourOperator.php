@@ -19,10 +19,17 @@ class TourOperator
 
     }
 
-    public function getName()
+    public function getInfos()
     {
 
-    }
+        $manager = new Manager();
+
+        $reqGetInfos = $manager->bdd->prepare('SELECT * FROM tour_operators WHERE id = '.$_GET['id_to']);
+        $reqGetInfos->execute();
+    
+        return $reqGetInfos->fetch(PDO::FETCH_ASSOC);
+      }
+    
 
     public function delete()
     {
