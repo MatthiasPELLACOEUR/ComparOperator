@@ -63,7 +63,7 @@ class Manager
             $toMessageExist = $reqMessage->rowCount();
             if ($toMessageExist == 0) {
               $insertMessage = $this->bdd->prepare('INSERT INTO reviews(author, message, id_tour_operator) VALUES (?, ?, ?)');
-              $insertMessage->execute(array($toAuthor, $toMessage, $_GET['id']));
+              $insertMessage->execute(array($toAuthor, $toMessage, $_GET['id_to']));
 
               echo "<font color='green'>Your Message has been posted.</font>";
             } else {
