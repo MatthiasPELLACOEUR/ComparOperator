@@ -26,7 +26,7 @@ include './partials/header.php';
 
               <form action="./delete.php" method="post">
                 <input type="hidden" name="id_to" value="<?=$admin['id_to']?>">
-                <button class="btn waves-effect white-text waves-red btn-flat red right " name="submit" type="submit">Delete</button><br>
+                <button class="btn waves-effect white-text waves-red btn-flat red right " name="submitTO" type="submit">Delete</button><br>
               </form>
 
             </div>

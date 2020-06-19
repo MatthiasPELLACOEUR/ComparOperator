@@ -90,7 +90,7 @@ class Manager
 
   public function getDestinationByToId()
   {
-    $reqDestinationByOp = $this->bdd->prepare('SELECT *, tour_operators.id as id FROM tour_operators INNER JOIN destinations ON destinations.id_tour_operator = tour_operators.id WHERE tour_operators.id = ?');
+    $reqDestinationByOp = $this->bdd->prepare('SELECT *, tour_operators.id as id, destinations.id as id_destination FROM tour_operators INNER JOIN destinations ON destinations.id_tour_operator = tour_operators.id WHERE tour_operators.id = ?');
     $reqDestinationByOp->execute(array($_GET['id_to']));
 
     return $reqDestinationByOp->fetchAll(PDO::FETCH_ASSOC);
@@ -148,10 +148,7 @@ class Manager
       $location = htmlspecialchars($_POST['location']);
       $price = $_POST['price'];
       if (!empty($_POST['location']) && !empty($_POST['price']) && !empty($_SESSION['id_to']) && isset($_FILES['monfichier']) AND $_FILES['monfichier']['error'] == 0) {
-        $reqLocation = $this->bdd->prepare('SELECT * FROM destinations WHERE location = ?');
-        $reqLocation->execute(array($location));
-        $toLocationExist = $reqLocation->rowCount();
-        if ($_FILES['monfichier']['size'] <= 1000000 && $toLocationExist == 0) {
+        if ($_FILES['monfichier']['size'] <= 1000000) {
             $infosfichier = pathinfo($_FILES['monfichier']['name']);
             $extension_upload = $infosfichier['extension'];
             $extensions_autorisees = array('jpg', 'jpeg', 'gif', 'png');

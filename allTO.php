@@ -17,12 +17,12 @@ $manager = new Manager();
     <div class="row">
         <?php $allTO = $manager->getAllOperator();
             foreach ($allTO as $tour_operator) {?>
-                <div class="col s4">
+                <div class="col s6">
                     <div class="card">
                         <div class="card-content">
                             <?php echo ucfirst($tour_operator["name"]);?>
 
-                            <a class="white-text" href="./operator.php?id_to=<?= $tour_operator['id'] ?>&name=<?= $tour_operator['name'] ?>"><button class="float right btn">Nos voyages</button></a>
+                            <a class="white-text right" href="./operator.php?id_to=<?= $tour_operator['id'] ?>&name=<?= $tour_operator['name'] ?>"><button class="float right btn">Nos voyages</button></a>
                                 
                         </div>
                     </div>
