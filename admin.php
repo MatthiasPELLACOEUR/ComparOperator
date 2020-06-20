@@ -22,7 +22,12 @@ include './partials/header.php';
           <div class="card">
             <div class="card-content">
               <h5 class="float left"><?= $admin['name']?></h5><p class="float right">Grade : <?= $admin['grade'] ?>/5</p><br>
-              <br><button class="btn green right">Edit</button>
+              <br>
+
+              <form action="./editTO.php?id_to=<?=$admin['id_to']?>" method="post">
+                <input type="hidden" name="id_to" value="<?=$admin['id_to']?>">
+                <a href=""><button class="btn green right" name="submitTOedit" type="submit">Edit</button></a>
+              </form>
 
               <form action="./delete.php" method="post">
                 <input type="hidden" name="id_to" value="<?=$admin['id_to']?>">
