@@ -1,5 +1,5 @@
 <nav>
-    <div class="nav-wrapper">
+    <div class="nav-wrapper to">
       <a href="../index.php" class="brand-logo">ComparOperator</a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
