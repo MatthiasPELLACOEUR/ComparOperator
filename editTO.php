@@ -14,7 +14,8 @@ include './partials/header.php';
 
 foreach($admins as $admin){
     echo 
-    '<form action="" method="POST">
+    '<form action="./edit.php" method="POST">
+        <input type="hidden" name="id_to" value="'.$_GET['id_to'].'">
         Changer le nom : 
         <input name="name" value="'.$admin['name'].'">
         Changer le lien vers votre site : 

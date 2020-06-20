@@ -46,7 +46,20 @@ class TourOperator
             $manager = new Manager();
             $manager->bdd->exec('DELETE FROM destinations WHERE destinations.id ='. $_POST['id_destination']);
         }
+    }
 
+    public function editTO()
+    {
+        $manager = new Manager();
+        $editTO = $manager->bdd->prepare('UPDATE tour_operators SET name = :name, link = :link, id_admin = :id_admin WHERE id ='.$_POST['id_to']);
+        $editTO->execute(array(':name' => $_POST['name'], ':link' => $_POST['link'], ':id_admin' => $_POST['admin']));
+    }
+
+    public function editDest()
+    {
+        $manager = new Manager();
+        $editDest = $manager->bdd->prepare('UPDATE destinations SET location = :location, price = :price, photos = :photos WHERE id ='.$_POST['id_to']);
+        $editDest->execute(array(':name' => $_POST['name'], ':link' => $_POST['link'], ':id_admin' => $_POST['admin']));
     }
 
     public function getLink()

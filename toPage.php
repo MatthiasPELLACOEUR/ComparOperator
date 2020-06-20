@@ -23,7 +23,6 @@ include './partials/nav_connect_to.php';
           ?>
           <div class="col s4">
 
-            <span>your name</span>
             <h4><?=$infoTourOp['name']?></h4>
 
           </div>
@@ -60,7 +59,7 @@ include './partials/nav_connect_to.php';
     <?php $manager->createDestination();?>
 
     </div>
-      <form method="post" class="col s3 float right">
+      <form method="post" class="col s3 float right form-premium">
       
         <select name="main">
             <?php if($infoTourOp['is_premium'] == "1"){?>
@@ -108,7 +107,7 @@ include './partials/nav_connect_to.php';
       <?php }?>
   </div>
 
-    <h4>Your comments : </h4>
+    <h4>Comments : </h4>
     <ul>
             <?= $review->getMessage() ?>
         </ul>
