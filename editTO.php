@@ -14,13 +14,13 @@ include './partials/header.php';
 
 foreach($admins as $admin){
     echo 
-    '<form action="./edit.php" method="POST">
+    '<form action="./edit.php" method="POST" class="formEditTo">
         <input type="hidden" name="id_to" value="'.$_GET['id_to'].'">
-        Changer le nom : 
+        Change your name : 
         <input name="name" value="'.$admin['name'].'">
-        Changer le lien vers votre site : 
+        Change your link : 
         <input name="link" value="'.$admin['link'].'">
-        Changer votre code administrateur : 
+        Change admin code : 
         <input name="admin" value="'.$admin['id_admin'].'">
         <a href=""><button class="btn green right" name="submitTOedit" type="submit">Enregistrer les modifications</button></a>
     </form>

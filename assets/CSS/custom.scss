@@ -4,6 +4,10 @@ body{
     height: auto;
 }
 
+.nav-wrapper.to{
+    padding-left: 30px;
+}
+
 .carousel-item {
     & .card {
     width: 500px;
@@ -57,10 +61,15 @@ footer{
     }
 }
 
-.form-editTO{
-    margin-left: 5px;
-}
-
-.form-premium{
-    margin-top: 15px;
+.formEditTo{
+    width: 500px;
+    padding-left: 100px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-right: 30px;
+    margin: auto;
+    margin-top: 20px;
+    border: 1px solid black;
+    background-color: rgba(233, 247, 250, 0.575);
+    border-radius: 1%;
 }
