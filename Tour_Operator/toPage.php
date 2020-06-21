@@ -1,8 +1,7 @@
 <?php
 session_start();
-// include './classes/Manager.php';
-include './classes/Review.php';
-include './classes/TourOperator.php';
+include '../classes/Review.php';
+include '../classes/TourOperator.php';
 $manager = new Manager();
 $review = new Review();
 $TourOp = new TourOperator();
@@ -11,8 +10,8 @@ if(isset($_POST['submit'])){
   $_SESSION['isPremium'] = $_POST['main'];//Retrieve the Option Value;
   $TourOp->setIsPremium();
 }
-include './partials/header.php';
-include './partials/nav_connect_to.php';
+include '../partials/header.php';
+include '../partials/nav_connect_to.php';
 ?>
 <div class="container">
   <div class="row">
@@ -52,8 +51,8 @@ include './partials/nav_connect_to.php';
   
   <div class="row">
     <div class="col s4">
-    <h4>Destinations : </h4>
-    <a href="../newDestination.php"><button class="btn blue">Add a destination</button></a><br>
+    <h4>Destinations: </h4>
+    <a href="../Destination/newDestination.php"><button class="btn blue">Add destination</button></a><br>
 
 
     <?php $manager->createDestination();?>
@@ -84,22 +83,23 @@ include './partials/nav_connect_to.php';
 
       foreach ($destinationByOps as $destination) {?>
   
-      <div class="col s6">
+      <div class="col s12 m12 l6">
         <h5 class="header"> <?= ucfirst($destination["location"])?></h5>
         <div class="card horizontal">
           <div class="card-image test">
-            <img src="./assets/IMG/<?=$destination['photos']?>">
+            <img src="../assets/IMG/<?=$destination['photos']?>">
+            
           </div>
           <div class="card-stacked">
             <div class="card-content">
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> <br><br>
               
-              <form action="./delete.php" method="post">
+              <form action="../delete.php" method="post">
                 <input type="hidden" name="id_destination" value="<?=$destination['id_destination']?>">
-                <button class="btn waves-effect white-text waves-red btn-flat red right " name="submitDest" type="submit">Delete</button><br>
+                <button class="btn waves-effect white-text waves-red btn-flat red left submitDest" name="submitDest" type="submit">Delete</button><br>
               </form>
 
-              <h5 class="right"><?=$destination['price']?>€</h5>
+              <h5 class="float right"><?=$destination['price']?>€</h5>
             </div>
           </div>
         </div>
@@ -114,4 +114,4 @@ include './partials/nav_connect_to.php';
 </div>
 <?php
 
-include './partials/footer.php';
+include '../partials/footer.php';

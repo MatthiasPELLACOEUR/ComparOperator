@@ -155,7 +155,7 @@ class Manager
             $photosToBdd = basename($_FILES['monfichier']['name']);
             $locationLen = strlen($location);
             if ($locationLen <= 255 && in_array($extension_upload, $extensions_autorisees)) {
-              move_uploaded_file($_FILES['monfichier']['tmp_name'], './assets/IMG/' . basename($_FILES['monfichier']['name']));
+              move_uploaded_file($_FILES['monfichier']['tmp_name'], '../assets/IMG/' . basename($_FILES['monfichier']['name']));
               $insertDestination = $this->bdd->prepare('INSERT INTO destinations(location, price, id_tour_operator, photos) VALUES (?, ?, ?, ?)');
               $insertDestination->execute(array($location, $price, $_SESSION['id_to'], $photosToBdd));
      

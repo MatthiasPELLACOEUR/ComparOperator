@@ -10,5 +10,5 @@ header('Location: ./admin.php?id_admin'.$_SESSION['id_admin']);
 
 if(isset($_POST['submitDest'])){
 $newTO->deleteDestination();
-header('Location: ./toPage.php?id_to='.$_SESSION['id_to']);
+header('Location: ./Tour_Operator/toPage.php?id_to='.$_SESSION['id_to']);
 }

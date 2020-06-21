@@ -1,15 +1,15 @@
 <?php
 session_start();
-include './classes/Manager.php';
+include '../classes/Manager.php';
 $manager = new Manager();
 
-include './partials/header.php';
-include './partials/nav_connect_to.php';
+include '../partials/header.php';
+include '../partials/nav_connect_to.php';
 ?>
 
 <div class="container row form-register">
     <div class="col s8 offset-s3">
-        <form method="POST" action="./toPage.php?id_to=<?=$_SESSION['id_to'] ?>" enctype="multipart/form-data">
+        <form method="POST" action="../Tour_Operator/toPage.php?id_to=<?=$_SESSION['id_to'] ?>" enctype="multipart/form-data">
             <div class="row">
                 <div class="input-field col s8">
                 <input type="text" name="location" class="validate">
@@ -35,5 +35,6 @@ include './partials/nav_connect_to.php';
 </div>
 
 
-<?php
-// include './partials/footer.php';
+<script src="https://code.jquery.com/jquery-3.0.0.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="../assets/JS/script.js"></script>

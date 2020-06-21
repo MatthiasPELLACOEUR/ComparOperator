@@ -54,7 +54,7 @@ $destination = new Destination();
     <?php $OperatorsByDestination = $manager->OperatorByDestination();
     foreach ($OperatorsByDestination as $operator) {
       if ($operator['is_premium'] == true) {?>
-        <div class="col s10 m6">
+        <div class="col s12 m6">
             <div class="card white to_by_destination">
               <div class="card-content black-text">
                 
@@ -88,5 +88,6 @@ $destination = new Destination();
     </div>
 </div>
 
-<?php
-// include '../partials/footer.php';
+<script src="https://code.jquery.com/jquery-3.0.0.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="../assets/JS/script.js"></script>

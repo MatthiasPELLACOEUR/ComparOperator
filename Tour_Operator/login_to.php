@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include './classes/Manager.php';
+include '../classes/Manager.php';
 $manager = new Manager();
 
 
@@ -15,7 +15,7 @@ if(isset($_POST['formConnect'])){
             $TOinfo = $reqTO->fetch();
             $_SESSION['id_to'] = $TOinfo['id'];
             $_SESSION['name'] = $toNameConnect;
-            header('Location:  /toPage.php?id_to='. $_SESSION['id_to']);
+            header('Location:  ./toPage.php?id_to='. $_SESSION['id_to']);
         }else{
             $erreur = 'Wrong name of Tour Operator';
         }
@@ -25,8 +25,8 @@ if(isset($_POST['formConnect'])){
     
 };
 
-include './partials/header.php';
-include './partials/nav_disconnet.php'
+include '../partials/header.php';
+include '../partials/nav_disconnet.php'
 ?>
 
 <body>
@@ -51,3 +51,7 @@ include './partials/nav_disconnet.php'
             ?>
         </div>
     </section>
+
+    <script src="https://code.jquery.com/jquery-3.0.0.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="../assets/JS/script.js"></script>

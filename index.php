@@ -23,10 +23,9 @@ session_start();
       <div class="row container">
         <div class="header-pcontainer">
           <h2 class="header">Choose your destination</h2>
-          <a href="./allDestinations.php"><button class="btn blue list-btn-dest">Voir toutes les destinations</button></a><br>
+          <a href="./Destination/allDestinations.php"><button class="btn blue list-btn-dest">Voir toutes les destinations</button></a><br>
           <p class="grey-text text-darken-3 lighten-3">Click on the card of your choice.</p>
         </div>
-
 
         <div class="carousel">
             <?php $destinations = $manager->getDestinationsLimit();
@@ -46,9 +45,9 @@ session_start();
                   </div>
             <?php }?>
           </div>
-        </div>
       </div>
     </div>
+  </div>
     <!-- <div class="container"> -->
 
     

@@ -1,15 +1,15 @@
 <?php
 session_start();
-include './partials/header.php';
-     include './classes/Review.php';
-     include './classes/TourOperator.php';
+include '../partials/header.php';
+     include '../classes/Review.php';
+     include '../classes/TourOperator.php';
      if(isset($_SESSION['id_admin'])){
-      include './partials/nav_connect_admin.php';
+      include '../partials/nav_connect_admin.php';
     }elseif(isset($_SESSION['id_to'])){
-      include './partials/nav_connect_to.php';
+      include '../partials/nav_connect_to.php';
     }
     else{
-      include './partials/nav_disconnet.php';
+      include '../partials/nav_disconnet.php';
     }
      $manager = new Manager();
      $tourOp = new TourOperator();
@@ -27,11 +27,11 @@ include './partials/header.php';
 
        foreach ($destinationByOps as $destination) {?>
     
-    <div class="col s6">
+    <div class="col s12 m6">
         <h5 class="header"> <?= ucfirst($destination["location"])?><span class="right"><?=$destination['price']?>€</span></h5>
         <div class="card horizontal">
           <div class="card-image test">
-          <img src="./assets/IMG/<?=$destination['photos']?>">
+          <img src="../assets/IMG/<?=$destination['photos']?>">
           </div>
           <div class="card-stacked">
             <div class="card-content">
@@ -63,4 +63,4 @@ include './partials/header.php';
 <?php
 
 
-include './partials/footer.php';
+include '../partials/footer.php';

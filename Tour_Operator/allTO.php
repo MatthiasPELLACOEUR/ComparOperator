@@ -1,15 +1,15 @@
 <?php
 session_start();
-include './partials/header.php';
+include '../partials/header.php';
 if(isset($_SESSION['id_admin'])){
-    include './partials/nav_connect_admin.php';
+    include '../partials/nav_connect_admin.php';
   }elseif(isset($_SESSION['id_to'])){
-    include './partials/nav_connect_to.php';
+    include '../partials/nav_connect_to.php';
   }
   else{
-    include './partials/nav_disconnet.php';
+    include '../partials/nav_disconnet.php';
   }
-  include './classes/TourOperator.php';
+  include '../classes/TourOperator.php';
 $manager = new Manager();
 ?>
 
@@ -31,3 +31,7 @@ $manager = new Manager();
         ?>
     </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.0.0.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="../assets/JS/script.js"></script>
