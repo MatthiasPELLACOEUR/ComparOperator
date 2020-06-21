@@ -148,7 +148,7 @@ class Manager
       $location = htmlspecialchars($_POST['location']);
       $price = $_POST['price'];
       if (!empty($_POST['location']) && !empty($_POST['price']) && !empty($_SESSION['id_to']) && isset($_FILES['monfichier']) AND $_FILES['monfichier']['error'] == 0) {
-        if ($_FILES['monfichier']['size'] <= 1000000) {
+        if ($_FILES['monfichier']['size'] <= 10000000) {
             $infosfichier = pathinfo($_FILES['monfichier']['name']);
             $extension_upload = $infosfichier['extension'];
             $extensions_autorisees = array('jpg', 'jpeg', 'gif', 'png');
@@ -161,7 +161,7 @@ class Manager
      
             }
         } else {
-          echo '<div class="container row"><div class="col s8 offset-s3"><font color="red">This location is already used.</font></div></div>';
+          echo '<div class="container row"><div class="col s8 offset-s3"><font color="red">This image is too heavy.</font></div></div>';
         }
       } else {
         echo '<font color="red">All fields must be completed.</font>';
