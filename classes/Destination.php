@@ -58,7 +58,7 @@ $destination = new Destination();
             <div class="card white to_by_destination">
               <div class="card-content black-text">
                 
-                <span class="card-title"><a class="blue-text" href="../operator.php?id_to=<?= $operator['id_tour_operator'] ?>&amp;name=<?= $operator['name'] ?>"> <?=$operator["name"]?> </a> <span class="right"><?= $operator['price'] ?>€</span> </span>
+                <span class="card-title"><a class="blue-text" href="../Tour_Operator/operator.php?id_to=<?= $operator['id_tour_operator'] ?>&amp;name=<?= $operator['name'] ?>"> <?=$operator["name"]?> </a> <span class="right"><?= $operator['price'] ?>€</span> </span>
                 <p>I am a very simple card. I am good at containing small bits of information.
                 I am convenient because I require little markup to use effectively.</p>
               </div>
@@ -73,7 +73,7 @@ $destination = new Destination();
         <div class="col s12 m6">
           <div class="card white">
             <div class="card-content black-text">
-              <span class="card-title"><a class="blue-text" href="../operator.php?id_to=<?= $operator['id_tour_operator'] ?>&amp;name=<?= $operator['name']?>"><?= $operator["name"] ?></a> <span class="right"><?= $operator['price'] ?>€</span> </span>
+              <span class="card-title"><a class="blue-text" href="../Tour_Operator/operator.php?id_to=<?= $operator['id_tour_operator'] ?>&amp;name=<?= $operator['name']?>"><?= $operator["name"] ?></a> <span class="right"><?= $operator['price'] ?>€</span> </span>
               
 
               <p>I am a very simple card. I am good at containing small bits of information.
